@@ -2,12 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background-color: #fff8f0; /* warm neutral background */
     color: #333;
 }
 
 header {
-    background-color: #004080;
+    background-color: #b44d12; /* warm reddish/orange */
     color: #fff;
     padding: 1rem;
 }
@@ -20,7 +20,7 @@ nav ul {
 }
 
 nav a {
-    color: #fff;
+    color: #fff5e1;
     text-decoration: none;
 }
 
@@ -29,7 +29,7 @@ main {
 }
 
 footer {
-    background-color: #e0e0e0;
+    background-color: #f5d0a9; /* light warm footer */
     padding: 1rem;
     text-align: center;
 }
@@ -47,7 +47,7 @@ footer {
 
 .services, .history {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column; /* mobile-first column layout */
     gap: 1rem;
 }
 
@@ -62,4 +62,11 @@ footer {
 .services img, .history img {
     max-width: 100%;
     height: auto;
+}
+
+@media (min-width: 600px) {
+    .services, .history {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }

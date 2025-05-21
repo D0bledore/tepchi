@@ -1,49 +1,56 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tepchi Skrädderi &amp; Kemtvätt</title>
+    <title>Tepchi Tailor</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Tepchi Skrädderi &amp; Kemtvätt</h1>
+    <header class="navbar">
+        <div class="logo">Tepchi Tailor</div>
         <nav>
             <ul>
-                <li><a href="index.html">Hem</a></li>
-                <li><a href="about.html">Om Oss</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#visit">Visit</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="hero">
-            <img src="dsc07086-1.jpg" alt="Butikens utsida">
-            <h2>Algatan 36a, Trelleborg</h2>
-        </section>
 
-        <section>
-            <h2>Tjänster</h2>
-            <div class="services">
-                <figure>
-                    <img src="lagning2.jpeg" alt="Lagning">
-                    <figcaption>Laga dina byxor för 150:-</figcaption>
-                </figure>
-                <figure>
-                    <img src="skjortchem_01.jpeg" alt="Kemtvätt">
-                    <figcaption>Kemtvätt för kostym för bara 300:-</figcaption>
-                </figure>
-                <figure>
-                    <img src="leverans.jpeg" alt="Leveransservice">
-                    <figcaption>Ring oss för leverans! +46737473898</figcaption>
-                </figure>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Tepchi Skrädderi &amp; Kemtvätt</p>
-    </footer>
-    <script src="script.js"></script>
+    <section class="hero">
+        <img src="images/tepchitailoring-2.jpeg" alt="Tailor shop">
+        <div class="overlay">
+            <h1>Elegant. Local. Tailored for You.</h1>
+            <a class="button" href="mailto:info@example.com">Book an Appointment</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul class="services-list">
+            <li>Suit Tailoring</li>
+            <li>Repairs</li>
+            <li>Custom Shirts</li>
+        </ul>
+    </section>
+
+    <section id="reviews">
+        <h2>Google Reviews</h2>
+        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        <div class="elfsight-app-e529b7b0-f86f-462d-ae7a-5434d0e4d343" data-elfsight-app-lazy></div>
+    </section>
+
+    <section class="storefront">
+        <img src="images/tepchitailoring-4.jpeg" alt="Storefront">
+    </section>
+
+    <section id="visit">
+        <h2>Visit Us</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2645.4170132715914!2d13.261601615665923!3d47.48128987917701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47768e85fd121cf9%3A0x661c3e833abde60a!2sTepchi!5e0!3m2!1sen!2sat!4v1716407018067!5m2!1sen!2sat" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <p>Algatan 36a, Trelleborg</p>
+    </section>
 </body>
 </html>

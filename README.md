@@ -6,6 +6,7 @@ This repository contains a small multi-page site inspired by the original Tepchi
 - **`about.html`** – Presents the history of the business since 1976.
 - **`contact.html`** – Provides address, phone number and opening hours.
 
-All pages share a navigation bar and footer. Styling is provided in **`style.css`** and a minimal JavaScript file is included as **`script.js`**.
+Common header and footer markup are stored in **`header.html`** and **`footer.html`**. These are loaded on each page via **`script.js`** so that navigation and copyright
+information stay consistent. Styling is provided in **`style.css`** and additional JavaScript handles smooth scrolling and basic contact form validation.
 
 To view the site, open `index.html` in a web browser.

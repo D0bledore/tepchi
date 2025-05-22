@@ -12,6 +12,10 @@ header {
     padding: 1rem;
 }
 
+.page-title {
+    margin-top: 0;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -62,4 +66,26 @@ footer {
 .services img, .history img {
     max-width: 100%;
     height: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+form input,
+form textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+form button {
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    background-color: #004080;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }

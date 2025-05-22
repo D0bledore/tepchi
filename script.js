@@ -7,11 +7,43 @@ function loadPartial(id, url) {
             .then(html => {
                 container.innerHTML = html;
                 if (id === 'header-placeholder') {
+                    buildNavLinks();
                     highlightActiveNav();
                     setupNavToggle();
                 }
             });
     }
+}
+
+// Create navigation links based on current page
+// Build a context-aware navbar so anchors only appear on the homepage
+function buildNavLinks() {
+    const navList = document.querySelector('.nav-links');
+    if (!navList) return;
+
+    navList.innerHTML = '';
+    const current = location.pathname.split('/').pop() || 'index.html';
+
+    const links = (current === 'index.html') ? [
+        { href: '#services', text: 'Tjänster' },
+        { href: '#reviews', text: 'Recensioner' },
+        { href: '#visit', text: 'Besök' },
+        { href: 'about.html', text: 'Om oss' },
+        { href: 'contact.html', text: 'Kontakt' },
+    ] : [
+        { href: 'index.html', text: 'Hem' },
+        { href: 'about.html', text: 'Om Oss' },
+        { href: 'contact.html', text: 'Kontakt' },
+    ];
+
+    links.forEach(link => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = link.href;
+        a.textContent = link.text;
+        li.appendChild(a);
+        navList.appendChild(li);
+    });
 }
 
 function highlightActiveNav() {
@@ -38,7 +70,6 @@ function setupNavToggle() {
 document.addEventListener('DOMContentLoaded', () => {
     loadPartial('header-placeholder', 'header.html');
     loadPartial('footer-placeholder', 'footer.html');
-    setupNavToggle();
 
     // Smooth scrolling for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

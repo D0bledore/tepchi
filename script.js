@@ -6,7 +6,10 @@ function loadPartial(id, url) {
             .then(res => res.text())
             .then(html => {
                 container.innerHTML = html;
-                if (id === 'header-placeholder') highlightActiveNav();
+                if (id === 'header-placeholder') {
+                    highlightActiveNav();
+                    setupNavToggle();
+                }
             });
     }
 }
@@ -20,9 +23,22 @@ function highlightActiveNav() {
     });
 }
 
+function setupNavToggle() {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('header nav');
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', !expanded);
+            nav.classList.toggle('open');
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadPartial('header-placeholder', 'header.html');
     loadPartial('footer-placeholder', 'footer.html');
+    setupNavToggle();
 
     // Smooth scrolling for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

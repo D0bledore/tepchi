@@ -278,6 +278,12 @@ section.in-view {
     .history figure {
         flex: 1 1 100%;
     }
+
+    /* Ensure storefront photo scales fluidly on small screens */
+    img[src$="storefront.jpg"] {
+        width: 100%;
+        height: auto;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {

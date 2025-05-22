@@ -31,6 +31,7 @@ header {
     background-color: var(--accent-color);
     color: #fff;
     padding: 0.5rem 1rem;
+    position: -webkit-sticky;
     position: sticky; /* keep header visible during scroll */
     top: 0;
     z-index: 1000;

@@ -42,5 +42,6 @@ Build innovative, visually stunning, responsive websites.
 * Create multiple prototypes exploring various styles and layouts before finalizing.
 * Document reasons behind design choices clearly for future iterations.
 * Seek feedback proactively and implement iterative enhancements based on user and developer insights.
+* Always review 'tailor_virtues.md' for inspiration before each task.
 
 ---

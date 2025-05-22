@@ -1,4 +1,5 @@
 # Changelog
 
 ## Navbar Stickiness Audit
-Completed audit, diagnosed CSS conflicts, and applied adaptive fixes for header persistence across devices.
+Repeated audit and simplified sticky header implementation. Removed padding workaround and added an `auditStickyHeader()` helper for diagnostics.
+

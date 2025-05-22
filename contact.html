@@ -7,32 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Kontakt</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Hem</a></li>
-                <li><a href="about.html">Om Oss</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
     <main>
+        <h2 class="page-title">Kontakt</h2>
         <section>
-            <h2>Hitta oss</h2>
+            <h3>Hitta oss</h3>
             <p>Algatan 36a, Trelleborg</p>
             <p>Telefon: <a href="tel:+46737473898">+46 73 747 38 98</a></p>
             <p>E-post: <a href="mailto:info@example.com">info@example.com</a></p>
             <figure>
-                <img src="images/dsc07086-1.jpg" alt="öppettider">
+                <img src="images/dsc07086-1.jpg" alt="Bild på skylt med öppettider" loading="lazy">
                 <figcaption>Vardagar 10–19, Lördag 10–15, Söndag stängt</figcaption>
             </figure>
             <p>Följ oss på <a href="https://www.facebook.com/profile.php?id=100080151489406" rel="nofollow">Facebook</a></p>
+            <form id="contact-form" novalidate>
+                <label for="name">Namn</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">E-post</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Meddelande</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Skicka</button>
+            </form>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Tepchi Skrädderi &amp; Kemtvätt</p>
-    </footer>
+    <div id="footer-placeholder"></div>
     <script src="script.js"></script>
 </body>
 </html>

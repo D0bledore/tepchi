@@ -30,7 +30,10 @@
             <p>Telefon: <a href="tel:+46737473898">+46 73 747 38 98</a></p>
             <p>E-post: <a href="mailto:info@example.com">info@example.com</a></p>
             <figure>
-                <img src="images/dsc07086-1.jpg" alt="Bild på skylt med öppettider" width="1024" height="682" loading="lazy">
+                <img src="images/storefront.jpg" alt="Bild på skylt med öppettider" width="1024" height="682"
+                    loading="lazy"
+                    srcset="images/storefront.jpg 480w, images/storefront.jpg 768w, images/storefront.jpg 1024w"
+                    sizes="(max-width: 600px) 100vw, 600px">
                 <figcaption>Vardagar 10–19, Lördag 10–15, Söndag stängt</figcaption>
             </figure>
             <p>Följ oss på <a href="https://www.facebook.com/profile.php?id=100080151489406" rel="nofollow">Facebook</a>
@@ -41,7 +44,8 @@
                 <span id="name-error" class="error-message" aria-live="polite"></span>
 
                 <label for="email">E-post</label>
-                <input type="email" id="email" name="email" aria-describedby="email-error" required autocomplete="email">
+                <input type="email" id="email" name="email" aria-describedby="email-error" required
+                    autocomplete="email">
                 <span id="email-error" class="error-message" aria-live="polite"></span>
 
                 <label for="message">Meddelande</label>

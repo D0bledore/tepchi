@@ -4,13 +4,18 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Lora', 'Times New Roman', serif;
     margin: 0;
     padding: 0;
-    line-height: 1.5;
+    line-height: 1.6;
     font-size: 16px;
     background-color: #f2f2f2;
     color: var(--text-color);
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    margin-top: 0;
 }
 
 header {
@@ -49,11 +54,15 @@ nav ul {
 nav a {
     color: #fff;
     text-decoration: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 nav a:hover,
 nav a:focus {
-    text-decoration: underline;
+    background-color: #002955;
+    text-decoration: none;
 }
 
 nav a.active {
@@ -61,7 +70,7 @@ nav a.active {
 }
 
 main {
-    padding: 1rem;
+    padding: 2rem;
 }
 
 footer {
@@ -70,9 +79,22 @@ footer {
     text-align: center;
 }
 
+
 .hero {
+    position: relative;
     text-align: center;
     margin-bottom: 2rem;
+}
+
+.hero-tagline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
 }
 
 .hero img {
@@ -119,12 +141,14 @@ form button {
     background-color: var(--primary-color);
     color: #fff;
     border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
     cursor: pointer;
 }
 
 form button:hover,
 form button:focus {
-    opacity: 0.9;
+    background-color: #002955;
 }
 
 a:focus,

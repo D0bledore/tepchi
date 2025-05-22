@@ -26,11 +26,14 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
+
 header {
     background-color: var(--accent-color);
     color: #fff;
     padding: 0.5rem 1rem;
-    position: relative; /* navbar will handle sticky positioning */
+    position: sticky; /* keep header visible during scroll */
+    top: 0;
+    z-index: 1000;
     max-height: 80px;
 }
 
@@ -40,9 +43,6 @@ header {
     justify-content: space-between;
     max-width: 1000px;
     margin: 0 auto;
-    position: sticky; /* keeps navigation visible while scrolling */
-    top: 0;
-    z-index: 1000;
     max-height: 80px; /* ensures consistent height across pages */
 }
 

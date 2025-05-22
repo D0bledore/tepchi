@@ -77,48 +77,6 @@ function setupNavToggle() {
     }
 }
 
-// Developer utility to audit header stickiness. Invoke in the console with
-// `auditStickyHeader()` to log diagnostics and simulate scrolling.
-function auditStickyHeader() {
-    const header = document.querySelector('header');
-    if (!header) {
-        console.warn('Header element not found.');
-        return;
-    }
-
-    const styles = window.getComputedStyle(header);
-    console.group('Sticky Header Audit');
-    console.log('Selector', 'header');
-    console.log('Height', header.offsetHeight);
-    console.log('Position', styles.position);
-    console.log('Top', styles.top);
-    console.log('Z-index', styles.zIndex);
-    console.groupEnd();
-
-    const failures = [];
-    let scrollPos = 0;
-    const step = 50;
-    const max = document.body.scrollHeight;
-
-    function check() {
-        window.scrollTo(0, scrollPos);
-        const top = header.getBoundingClientRect().top;
-        if (scrollPos > header.offsetHeight && Math.round(top) !== 0) {
-            failures.push({ scrollPos, top });
-        }
-        scrollPos += step;
-        if (scrollPos <= max) {
-            requestAnimationFrame(check);
-        } else if (failures.length) {
-            console.warn('Sticky check failed', failures);
-        } else {
-            console.log('Sticky behavior PASS');
-        }
-    }
-
-    requestAnimationFrame(check);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     loadPartial('header-placeholder', 'header.html');
     loadPartial('footer-placeholder', 'footer.html');

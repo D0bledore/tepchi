@@ -10,8 +10,18 @@ function loadPartial(id, url) {
                     buildNavLinks();
                     highlightActiveNav();
                     setupNavToggle();
+                    updateNavbarHeight();
+                    window.addEventListener('resize', updateNavbarHeight);
                 }
             });
+    }
+}
+
+// Keep a CSS variable in sync with the header height
+function updateNavbarHeight() {
+    const header = document.querySelector('header');
+    if (header) {
+        document.documentElement.style.setProperty('--navbar-height', header.offsetHeight + 'px');
     }
 }
 

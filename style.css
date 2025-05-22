@@ -30,10 +30,8 @@ header {
     background-color: var(--accent-color);
     color: #fff;
     padding: 0.5rem 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    max-height: 80px; /* keeps navbar slim while sticky */
+    position: relative; /* navbar will handle sticky positioning */
+    max-height: 80px;
 }
 
 .navbar {
@@ -42,7 +40,9 @@ header {
     justify-content: space-between;
     max-width: 1000px;
     margin: 0 auto;
-    position: relative;
+    position: sticky; /* keeps navigation visible while scrolling */
+    top: 0;
+    z-index: 1000;
     max-height: 80px; /* ensures consistent height across pages */
 }
 

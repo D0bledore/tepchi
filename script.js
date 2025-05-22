@@ -4,8 +4,20 @@ function loadPartial(id, url) {
     if (container) {
         fetch(url)
             .then(res => res.text())
-            .then(html => { container.innerHTML = html; });
+            .then(html => {
+                container.innerHTML = html;
+                if (id === 'header-placeholder') highlightActiveNav();
+            });
     }
+}
+
+function highlightActiveNav() {
+    const current = location.pathname.split('/').pop();
+    document.querySelectorAll('nav a').forEach(link => {
+        if (link.getAttribute('href') === current) {
+            link.classList.add('active');
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {

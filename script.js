@@ -14,6 +14,7 @@ function loadPartial(id, url) {
                 highlightActiveNav();
                 setupNavToggle();
                 updateNavbarHeight();
+                logHeaderMetrics();
             }
         });
 }
@@ -24,6 +25,23 @@ function updateNavbarHeight() {
     if (header) {
         document.documentElement.style.setProperty('--navbar-height', header.offsetHeight + 'px');
     }
+}
+
+function logHeaderMetrics() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const style = getComputedStyle(header);
+    console.log('[Header Metrics]', {
+        position: style.position,
+        top: style.top,
+        zIndex: style.zIndex,
+        width: style.width,
+        background: style.backgroundColor,
+        boxShadow: style.boxShadow,
+        padding: style.padding,
+        offsetHeight: header.offsetHeight,
+        boundingRect: header.getBoundingClientRect()
+    });
 }
 
 // Create navigation links based on current page

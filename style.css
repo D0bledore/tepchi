@@ -34,8 +34,11 @@ header {
     padding: 0.5rem 1rem;
     position: sticky; /* keep header visible during scroll */
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     max-height: 80px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar {

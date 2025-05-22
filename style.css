@@ -3,13 +3,14 @@
     --accent-color: #1d283a;
     --text-color: #000;
     --background-color: #fffaf5; /* light cream for a welcoming feel */
+    --navbar-height: 0px;
 }
 
 body {
     /* Clean sans-serif body text to highlight readability */
     font-family: 'Open Sans', Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: var(--navbar-height) 0 0 0;
     line-height: 1.6;
     font-size: 16px;
     background-color: var(--background-color);

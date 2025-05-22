@@ -29,7 +29,28 @@ h1, h2, h3 {
 header {
     background-color: var(--accent-color);
     color: #fff;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .skip-link {
@@ -48,8 +69,13 @@ header {
     margin-bottom: 1rem;
 }
 
+
 .page-title {
     margin-top: 0;
+}
+
+nav {
+    display: block;
 }
 
 nav ul {
@@ -212,9 +238,28 @@ section.in-view {
 }
 
 @media (max-width: 600px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--accent-color);
+    }
+
+    nav.open {
+        display: block;
+    }
+
     nav ul {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0;
+        margin: 0;
+        padding: 0.5rem 0;
     }
 
     .services figure,

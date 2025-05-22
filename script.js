@@ -1,20 +1,21 @@
 // Load reusable header and footer
 function loadPartial(id, url) {
     const container = document.getElementById(id);
-    if (container) {
-        fetch(url)
-            .then(res => res.text())
-            .then(html => {
-                container.innerHTML = html;
-                if (id === 'header-placeholder') {
-                    buildNavLinks();
-                    highlightActiveNav();
-                    setupNavToggle();
-                    updateNavbarHeight();
-                    window.addEventListener('resize', updateNavbarHeight);
-                }
-            });
+    if (!container) {
+        return Promise.resolve();
     }
+
+    return fetch(url)
+        .then(res => res.text())
+        .then(html => {
+            container.innerHTML = html;
+            if (id === 'header-placeholder') {
+                buildNavLinks();
+                highlightActiveNav();
+                setupNavToggle();
+                updateNavbarHeight();
+            }
+        });
 }
 
 // Keep a CSS variable in sync with the header height
@@ -80,6 +81,8 @@ function setupNavToggle() {
 document.addEventListener('DOMContentLoaded', () => {
     loadPartial('header-placeholder', 'header.html');
     loadPartial('footer-placeholder', 'footer.html');
+    // Register once to avoid duplicate listeners on subsequent loads
+    window.addEventListener('resize', updateNavbarHeight);
 
     // Smooth scrolling for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

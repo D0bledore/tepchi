@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt - Tepchi Skrädderi</title>
-    <!-- Shared font imports for elegance and clarity -->
+    <title>Tepchi Tailor</title>
+
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Elegant and clean font stack -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <div id="header-placeholder"></div>
     <main id="main-content">
         <h2 class="page-title">Kontakt</h2>
@@ -23,12 +33,13 @@
                 <img src="images/dsc07086-1.jpg" alt="Bild på skylt med öppettider" loading="lazy">
                 <figcaption>Vardagar 10–19, Lördag 10–15, Söndag stängt</figcaption>
             </figure>
-            <p>Följ oss på <a href="https://www.facebook.com/profile.php?id=100080151489406" rel="nofollow">Facebook</a></p>
-            <form id="contact-form" novalidate>
+            <p>Följ oss på <a href="https://www.facebook.com/profile.php?id=100080151489406" rel="nofollow">Facebook</a>
+            </p>
+            <form id="contact-form" novalidate aria-label="Kontaktformulär">
                 <label for="name">Namn</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required autocomplete="name">
                 <label for="email">E-post</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required autocomplete="email">
                 <label for="message">Meddelande</label>
                 <textarea id="message" name="message" required></textarea>
                 <button type="submit">Skicka</button>
@@ -38,4 +49,5 @@
     <div id="footer-placeholder"></div>
     <script src="script.js"></script>
 </body>
+
 </html>

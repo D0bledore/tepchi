@@ -54,8 +54,12 @@ header {
     background: none;
     border: none;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+    height: 44px;
+    width: 44px;
 }
 
 .skip-link {

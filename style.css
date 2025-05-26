@@ -33,7 +33,7 @@ h1, h2, h3 {
 header {
     background-color: var(--accent-color);
     color: #fff;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem; /* Increased padding for better spacing */
     position: fixed; /* Changed from sticky to fixed */
     top: 0;
     left: 0;
@@ -65,6 +65,7 @@ header {
     line-height: 1;
     height: 44px;
     width: 44px;
+    margin-left: 1rem; /* Add margin to separate from text */
 }
 
 .skip-link {
@@ -103,6 +104,8 @@ nav ul {
 .site-title {
     margin: 0;
     font-size: 1.5rem;
+    flex: 1; /* Allow title to take available space */
+    padding-right: 1rem; /* Add padding to prevent text from crowding the toggle */
 }
 
 .logo {
@@ -361,6 +364,19 @@ section.in-view {
 @media (max-width: 600px) {
     .nav-toggle {
         display: block;
+    }
+    
+    .navbar {
+        position: relative;
+        justify-content: space-between;
+    }
+    
+    .site-title {
+        font-size: 1.2rem; /* Slightly smaller on mobile */
+        max-width: 75%; /* Prevent text from crowding the toggle button */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     nav {

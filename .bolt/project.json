@@ -1,0 +1,11 @@
+{
+  "name": "tepchi-skradderi",
+  "description": "Website for Tepchi Skradderi & Kemtvatt",
+  "version": "1.0.0",
+  "framework": "vite + react",
+  "scripts": {
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "preview": "npm run preview"
+  }
+}

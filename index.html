@@ -33,21 +33,27 @@
 
     <!-- Services -->
     <section id="services">
-      <h2>Tjänster</h2>
-      <div class="services">
-        <figure>
-          <img src="images/lagning2.jpeg" alt="Exempel på lagning av byxor" width="750" height="750" loading="lazy">
-          <figcaption>Laga dina byxor för 150:-</figcaption>
-        </figure>
-        <figure>
-          <img src="images/skjortchem_01.jpeg" alt="Exempel på kemtvätt av skjorta" width="1000" height="667"
-            loading="lazy">
-          <figcaption>Kemtvätt för kostym för bara 300:-</figcaption>
-        </figure>
-        <figure>
-          <img src="images/leverans.jpeg" alt="Leveransservice med budbil" width="724" height="483" loading="lazy">
-          <figcaption>Ring oss för leverans! <a href="tel:+46737473898">+46737473898</a></figcaption>
-        </figure>
+      <h2>Rädda naturen – få 50% rabatt samtidigt</h2>
+      <div class="upload-container">
+        <div class="upload-area" id="upload-area">
+          <div class="upload-placeholder">
+            <span class="upload-icon">📷</span>
+            <p>Ladda upp bild här...</p>
+          </div>
+          <input type="file" id="image-upload" accept="image/*" class="file-input">
+        </div>
+        
+        <div class="upload-instructions">
+          <h3>Så här gör du:</h3>
+          <ol>
+            <li>Ladda upp en bild på ditt klädesplagg som är sönder eller behöver fixas</li>
+            <li>Vår AI kommer att identifiera vad som är fel och ge ett pris på arbetskostnaderna</li>
+            <li>Bekräfta att du vill ha klädesplagget fixat och få 50% rabatt med RUT-avdrag.
+              Vi hämtar kläderna sen och levererar när de är klara.</li>
+          </ol>
+        </div>
+        
+        <div id="upload-result" class="upload-result"></div>
       </div>
     </section>
 

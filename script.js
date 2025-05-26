@@ -78,11 +78,99 @@ function setupNavToggle() {
     }
 }
 
+// Setup image upload functionality
+function setupImageUpload() {
+    const uploadArea = document.getElementById('upload-area');
+    const fileInput = document.getElementById('image-upload');
+    const resultDiv = document.getElementById('upload-result');
+    
+    if (!uploadArea || !fileInput || !resultDiv) return;
+    
+    uploadArea.addEventListener('click', () => {
+        fileInput.click();
+    });
+    
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const file = e.target.files[0];
+            
+            // Check if file is an image
+            if (!file.type.match('image.*')) {
+                resultDiv.innerHTML = '<p>Vänligen ladda upp en bild (JPG, PNG, etc).</p>';
+                resultDiv.className = 'upload-result error';
+                return;
+            }
+            
+            // Display the uploaded image
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                uploadArea.innerHTML = `<img src="${event.target.result}" alt="Uppladdad bild" style="max-width: 100%; max-height: 100%; object-fit: contain;">`;
+                
+                // Simulate AI analysis (in a real app, this would be an API call)
+                setTimeout(() => {
+                    resultDiv.innerHTML = `
+                        <h3>AI-analys klar!</h3>
+                        <p>Vi har identifierat att ditt plagg behöver lagning av sömmen.</p>
+                        <p>Uppskattat pris: 150 kr (75 kr efter RUT-avdrag)</p>
+                        <button id="confirm-repair" class="confirm-button">Bekräfta reparation</button>
+                    `;
+                    resultDiv.className = 'upload-result success';
+                    
+                    // Add event listener to the confirm button
+                    document.getElementById('confirm-repair').addEventListener('click', () => {
+                        resultDiv.innerHTML = `
+                            <h3>Tack för din beställning!</h3>
+                            <p>Vi kommer att kontakta dig inom kort för att arrangera upphämtning.</p>
+                        `;
+                    });
+                }, 1500);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    
+    // Handle drag and drop
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        uploadArea.addEventListener(eventName, preventDefaults, false);
+    });
+    
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
+    ['dragenter', 'dragover'].forEach(eventName => {
+        uploadArea.addEventListener(eventName, () => {
+            uploadArea.classList.add('highlight');
+        }, false);
+    });
+    
+    ['dragleave', 'drop'].forEach(eventName => {
+        uploadArea.addEventListener(eventName, () => {
+            uploadArea.classList.remove('highlight');
+        }, false);
+    });
+    
+    uploadArea.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        
+        if (files.length) {
+            fileInput.files = files;
+            const event = new Event('change', { bubbles: true });
+            fileInput.dispatchEvent(event);
+        }
+    }, false);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadPartial('header-placeholder', 'header.html');
     loadPartial('footer-placeholder', 'footer.html');
     // Register once to avoid duplicate listeners on subsequent loads
     window.addEventListener('resize', updateNavbarHeight);
+    
+    // Setup image upload functionality
+    setupImageUpload();
 
     // Smooth scrolling for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

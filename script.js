@@ -69,11 +69,52 @@ function highlightActiveNav() {
 function setupNavToggle() {
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('header nav');
+    
     if (toggle && nav) {
+        // Update toggle button text based on state
+        function updateToggleIcon(expanded) {
+            toggle.innerHTML = expanded ? '&#10005;' : '&#9776;';
+            toggle.setAttribute('aria-label', expanded ? 'Stäng meny' : 'Visa meny');
+        }
+        
         toggle.addEventListener('click', () => {
             const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', !expanded);
+            const newState = !expanded;
+            
+            toggle.setAttribute('aria-expanded', newState);
             nav.classList.toggle('open');
+            
+            // Update the icon based on the new state
+            updateToggleIcon(newState);
+            
+            // If menu is open, add event listener to close when clicking outside
+            if (newState) {
+                setTimeout(() => {
+                    document.addEventListener('click', closeMenuOutside);
+                }, 10);
+            } else {
+                document.removeEventListener('click', closeMenuOutside);
+            }
+        });
+        
+        // Function to close menu when clicking outside
+        function closeMenuOutside(event) {
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                toggle.setAttribute('aria-expanded', 'false');
+                nav.classList.remove('open');
+                updateToggleIcon(false);
+                document.removeEventListener('click', closeMenuOutside);
+            }
+        }
+        
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+                toggle.setAttribute('aria-expanded', 'false');
+                nav.classList.remove('open');
+                updateToggleIcon(false);
+                document.removeEventListener('click', closeMenuOutside);
+            }
         });
     }
 }

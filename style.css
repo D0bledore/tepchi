@@ -66,6 +66,7 @@ header {
     height: 44px;
     width: 44px;
     margin-left: 1rem; /* Add margin to separate from text */
+    transition: transform 0.3s ease; /* Smooth transition for icon */
 }
 
 .skip-link {
@@ -390,6 +391,9 @@ section.in-view {
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         transform: translateY(-10px);
         opacity: 0;
+        z-index: 1001; /* Ensure menu is above other content */
+        width: 100%; /* Full width */
+        overflow: hidden; /* Prevent scrollbar */
     }
 
     nav.open {
@@ -403,6 +407,7 @@ section.in-view {
         gap: 0;
         margin: 0;
         padding: 0;
+        width: 100%; /* Full width */
     }
     
     nav ul li {
@@ -420,6 +425,7 @@ section.in-view {
     nav a:hover,
     nav a:focus {
         transform: none;
+        background-color: #27354a; /* Consistent hover state */
     }
 
     .services figure,

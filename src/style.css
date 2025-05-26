@@ -1,0 +1,521 @@
+:root {
+    /* Deep navy accent conveys tradition and precision */
+    --accent-color: #1d283a;
+    --text-color: #000;
+    --background-color: #fffaf5; /* light cream for a welcoming feel */
+    --navbar-height: 0px;
+    --primary-color: #1d283a;
+    --secondary-color: #4a6fa5;
+    --success-color: #28a745;
+}
+
+body {
+    /* Clean sans-serif body text to highlight readability */
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0;
+    padding: var(--navbar-height) 0 0 0;
+    line-height: 1.6;
+    font-size: 16px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    /* subtle fabric-like texture */
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+                      linear-gradient(-45deg, rgba(0,0,0,0.02) 25%, transparent 25%);
+    background-size: 4px 4px;
+}
+
+h1, h2, h3 {
+    /* Serif font underscores elegance */
+    font-family: 'Playfair Display', Georgia, serif;
+    margin-top: 0;
+}
+
+header {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.75rem 1.25rem; /* Increased padding for better spacing */
+    position: fixed; /* Changed from sticky to fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    max-height: 80px;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Add shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for any changes */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    max-height: 80px; /* ensures consistent height across pages */
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+    height: 44px;
+    width: 44px;
+    margin-left: 1rem; /* Add margin to separate from text */
+    transition: transform 0.3s ease; /* Smooth transition for icon */
+}
+
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.page-title {
+    margin-top: 0;
+}
+
+nav {
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for mobile menu */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    margin: 0; /* Remove default margin */
+}
+
+.site-title {
+    margin: 0;
+    font-size: 1.5rem;
+    flex: 1; /* Allow title to take available space */
+    padding-right: 1rem; /* Add padding to prevent text from crowding the toggle */
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.2s ease; /* Smooth hover effect */
+}
+
+.logo:hover {
+    opacity: 0.9;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem; /* Increased vertical padding for better touch targets */
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s; /* smooth interaction for clarity */
+    display: block; /* Better touch targets */
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: #27354a; /* micro-interaction for navigation */
+    text-decoration: none;
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+nav a.active {
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.1); /* Highlight active page */
+}
+
+main {
+    padding: 2rem;
+    margin-top: var(--navbar-height); /* Add margin to prevent content from being hidden under header */
+}
+
+/* Centered vertical sections emphasise personal attention */
+section:not(.hero) {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer {
+    background-color: #f0f0f0; /* light footer to keep focus on content */
+    padding: 1rem;
+    text-align: center;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-tagline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.hero img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* Upload container styles */
+.upload-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.upload-area {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 3px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.upload-area:hover {
+    border-color: var(--secondary-color);
+    background-color: rgba(74, 111, 165, 0.05);
+}
+
+.upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #888;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-instructions {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.upload-instructions h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.upload-instructions ol {
+    padding-left: 1.5rem;
+}
+
+.upload-instructions li {
+    margin-bottom: 0.75rem;
+}
+
+.upload-result {
+    padding: 1rem;
+    border-radius: 8px;
+    display: none;
+}
+
+.upload-result.success {
+    display: block;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid var(--success-color);
+}
+
+.upload-result.error {
+    display: block;
+    background-color: rgba(220, 53, 69, 0.1);
+    border: 1px solid #dc3545;
+}
+
+.services, .history {
+    /* modern grid layout for flexible cards */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.services figure, .history figure {
+    flex: 1 1 200px;
+    background: #fff;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s; /* refined micro-interaction */
+}
+
+.services figure:hover,
+.history figure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.services img, .history img {
+    max-width: 100%;
+    height: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+form input,
+form textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+form button {
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+form button:hover,
+form button:focus {
+    background-color: #27354a; /* subtle micro-interaction */
+}
+
+a:focus,
+button:focus {
+    outline: 2px solid #ffbf47;
+    outline-offset: 2px;
+}
+
+/* inline form validation */
+.error-message {
+    color: #b20000;
+    font-size: 0.875rem;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+}
+
+/* scroll animation */
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .nav-toggle {
+        display: block;
+        position: relative; /* Ensure proper positioning */
+        z-index: 1002; /* Higher than the menu to stay on top */
+        margin-right: 0; /* Remove right margin */
+        padding: 0.5rem; /* Consistent padding */
+        right: 0; /* Align to the right */
+    }
+
+    .navbar {
+        position: relative;
+        justify-content: space-between;
+        padding: 0; /* Remove padding from navbar */
+        width: 100%; /* Ensure full width */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    .site-title {
+        font-size: 1.2rem; /* Slightly smaller on mobile */
+        max-width: 75%; /* Prevent text from crowding the toggle button */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--accent-color);
+        padding: 0.5rem 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transform: translateY(-10px);
+        opacity: 0;
+        z-index: 1001; /* Ensure menu is above other content */
+        width: 100%; /* Full width */
+        overflow: hidden; /* Prevent scrollbar */
+    }
+
+    nav.open {
+        display: block;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%; /* Full width */
+    }
+    
+    nav ul li {
+        width: 100%;
+    }
+    
+    nav a {
+        padding: 0.75rem 1.5rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+    }
+    
+    nav a:hover,
+    nav a:focus {
+        transform: none;
+        background-color: #27354a; /* Consistent hover state */
+    }
+
+    .services figure,
+    .history figure {
+        flex: 1 1 100%;
+    }
+
+    /* Ensure storefront photo scales fluidly on small screens */
+    img[src$="storefront.jpg"] {
+        width: 100%;
+        height: auto;
+    }
+    
+    .upload-area {
+        height: 200px;
+    }
+    
+    .upload-container {
+        padding: 1rem;
+    }
+    
+    main {
+        padding: 1rem;
+        margin-top: calc(var(--navbar-height) + 1rem); /* Add extra margin for mobile */
+    }
+    
+    .hero-tagline {
+        width: 80%;
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 767px) {
+    main {
+        padding: 1.5rem;
+        margin-top: calc(var(--navbar-height) + 0.5rem);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: 1.125rem;
+    }
+
+    .hero-tagline {
+        padding: 2rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        font-size: 1.25rem;
+    }
+
+    main {
+        padding: 3rem 4rem;
+    }
+}
+
+/* Confirm button styling */
+.confirm-button {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 1rem;
+}
+
+.confirm-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Highlight effect for drag and drop */
+.upload-area.highlight {
+    border-color: var(--secondary-color);
+    background-color: rgba(74, 111, 165, 0.1);
+    transform: scale(1.02);
+}

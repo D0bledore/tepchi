@@ -41,6 +41,8 @@ header {
     z-index: 1000;
     max-height: 80px;
     width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Add shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for any changes */
 }
 
 .navbar {
@@ -87,6 +89,7 @@ header {
 
 nav {
     display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for mobile menu */
 }
 
 nav ul {
@@ -94,6 +97,7 @@ nav ul {
     padding: 0;
     display: flex;
     gap: 1rem;
+    margin: 0; /* Remove default margin */
 }
 
 .site-title {
@@ -104,24 +108,32 @@ nav ul {
 .logo {
     color: #fff;
     text-decoration: none;
+    transition: opacity 0.2s ease; /* Smooth hover effect */
+}
+
+.logo:hover {
+    opacity: 0.9;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
-    padding: 0.25rem 0.75rem;
+    padding: 0.5rem 0.75rem; /* Increased vertical padding for better touch targets */
     border-radius: 4px;
-    transition: background-color 0.3s; /* smooth interaction for clarity */
+    transition: background-color 0.3s, transform 0.2s; /* smooth interaction for clarity */
+    display: block; /* Better touch targets */
 }
 
 nav a:hover,
 nav a:focus {
     background-color: #27354a; /* micro-interaction for navigation */
     text-decoration: none;
+    transform: translateY(-2px); /* Subtle lift effect */
 }
 
 nav a.active {
     text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.1); /* Highlight active page */
 }
 
 main {
@@ -358,17 +370,40 @@ section.in-view {
         left: 0;
         right: 0;
         background-color: var(--accent-color);
+        padding: 0.5rem 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transform: translateY(-10px);
+        opacity: 0;
     }
 
     nav.open {
         display: block;
+        transform: translateY(0);
+        opacity: 1;
     }
 
     nav ul {
         flex-direction: column;
         gap: 0;
         margin: 0;
-        padding: 0.5rem 0;
+        padding: 0;
+    }
+    
+    nav ul li {
+        width: 100%;
+    }
+    
+    nav a {
+        padding: 0.75rem 1.5rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+    }
+    
+    nav a:hover,
+    nav a:focus {
+        transform: none;
     }
 
     .services figure,
@@ -388,6 +423,24 @@ section.in-view {
     
     .upload-container {
         padding: 1rem;
+    }
+    
+    main {
+        padding: 1rem;
+        margin-top: calc(var(--navbar-height) + 1rem); /* Add extra margin for mobile */
+    }
+    
+    .hero-tagline {
+        width: 80%;
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 767px) {
+    main {
+        padding: 1.5rem;
+        margin-top: calc(var(--navbar-height) + 0.5rem);
     }
 }
 
@@ -410,4 +463,29 @@ section.in-view {
     main {
         padding: 3rem 4rem;
     }
+}
+
+/* Confirm button styling */
+.confirm-button {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 1rem;
+}
+
+.confirm-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Highlight effect for drag and drop */
+.upload-area.highlight {
+    border-color: var(--secondary-color);
+    background-color: rgba(74, 111, 165, 0.1);
+    transform: scale(1.02);
 }

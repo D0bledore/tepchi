@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import './style.css';
 
 // Create a root element for React to render into
@@ -11,6 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.createRoot(headerPlaceholder).render(
       <React.StrictMode>
         <Header />
+      </React.StrictMode>
+    );
+  }
+
+  const footerPlaceholder = document.getElementById('footer-placeholder');
+  if (footerPlaceholder) {
+    ReactDOM.createRoot(footerPlaceholder).render(
+      <React.StrictMode>
+        <Footer />
       </React.StrictMode>
     );
   }

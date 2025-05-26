@@ -1,0 +1,111 @@
+# ==========================================
+# Node.js
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+
+# ==========================================
+# Vite / Build outputs
+# ==========================================
+dist/
+build/
+.vite/
+
+# If you're using SSR
+.ssr/
+
+# If you're using preview builds
+.preview/
+
+# ==========================================
+# OS Generated Files
+# ==========================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+
+# ==========================================
+# Env / Secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# Logs
+# ==========================================
+logs/
+*.log
+*.log.*
+
+# ==========================================
+# Editor Configs
+# ==========================================
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ==========================================
+# TypeScript
+# ==========================================
+*.tsbuildinfo
+
+# ==========================================
+# Testing
+# ==========================================
+coverage/
+*.lcov
+.nyc_output/
+
+# ==========================================
+# Linting/Tooling
+# ==========================================
+.eslintcache
+.stylelintcache
+.prettiercache
+
+# ==========================================
+# Git hooks (if using Husky)
+# ==========================================
+.husky/_/
+
+# ==========================================
+# Optional: Mac/Linux Binary Caches
+# ==========================================
+*.tgz
+*.gz
+*.zip
+
+# ==========================================
+# Optional: Local deployment or CI/CD output
+# ==========================================
+.deploy/
+server/
+output/
+tmp/
+temp/
+
+# ==========================================
+# Custom: User-uploaded files (if any)
+# ==========================================
+uploads/
+media/
+
+# ==========================================
+# Optional: Lockfiles (uncomment one if you want to keep it clean)
+# ==========================================
+# yarn.lock
+# package-lock.json
+# pnpm-lock.yaml

@@ -84,8 +84,51 @@ function setupImageUpload() {
     }, false);
 }
 
+// Setup responsive header navigation
+function setupHeader() {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    const navToggle = header.querySelector('.nav-toggle');
+    const nav = header.querySelector('nav');
+
+    const updateNavbarHeight = () => {
+        document.documentElement.style.setProperty('--navbar-height', header.offsetHeight + 'px');
+    };
+    updateNavbarHeight();
+    window.addEventListener('resize', updateNavbarHeight);
+
+    if (navToggle && nav) {
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', String(!expanded));
+            navToggle.textContent = expanded ? '☰' : '✕';
+            nav.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !navToggle.contains(e.target)) {
+                nav.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.textContent = '☰';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                nav.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.textContent = '☰';
+            }
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    
+
+    // Setup responsive header
+    setupHeader();
+
     // Setup image upload functionality
     setupImageUpload();
 
